@@ -50,6 +50,7 @@ class Signal extends ControllingSystem {
 				+ signal.getSignalID());
 		signal.convertOscToMidi();
 		Main.mixer.receiveFromPeople(channelID, sliderID, volumeLevel);
+		// hello world git
 
 	}
 
@@ -69,7 +70,6 @@ class Signal extends ControllingSystem {
 		System.out.println("Instrument is sending a signal named "
 				+ signal.getSignalID());
 		signal.convertMidiToOsc();
-
 		Main.worker.receiveFromAudioSystem(channelID, sliderID, volumeLevel);
 
 	}
