@@ -1,5 +1,6 @@
 package computerAudioSystem;
 
+import java.sql.SQLException;
 import java.util.Random;
 
 public class ControllingSystem implements Audiable, Interractable {
@@ -67,6 +68,9 @@ class Signal extends ControllingSystem {
 		Signal signal = new Signal();
 		signal.setSignalID(rand.nextInt(100));
 		signal.setUpParameteresMidi(channelID, sliderID, volumeLevel);
+		
+		Mysql.executeQuery("INSERT INTO my_signal VALUES( "+signal.getSignalID()+" )");
+		
 		System.out.println("Instrument is sending a signal named "
 				+ signal.getSignalID());
 		signal.convertMidiToOsc();
